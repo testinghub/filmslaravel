@@ -53,7 +53,7 @@
 
         <div class="form-group">
 
-            <button type="submit" class="btn-reg ">
+            <button type="submit" class="btn-auth">
                 Зарегистрироваться
             </button>
 

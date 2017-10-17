@@ -1,9 +1,7 @@
 @extends('layout.layout')
 <link rel='stylesheet' type='text/css' href='{{ URL::asset('css/mediaelementplayer.css') }}' />
 
-<script  src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
-<script type='text/javascript' src='{{ URL::asset('js/mediaelement-and-player.js') }}'></script>
-<script type='text/javascript' src='{{ URL::asset('js/script.js') }}'></script>
+
 
 
 

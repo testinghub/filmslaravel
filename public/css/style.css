@@ -23,16 +23,14 @@ a{
 }
 .box{
     width: 95%;
-    /* text-align: center; */
     margin: 0 1.6%;
     display: inline-block;
     padding: 5px;
-    border-top: solid 1px #9c9c9c;
-    border-bottom: solid 1px #9c9c9c;
+    border-top: solid 1px #848484;
+    border-bottom: solid 1px #848484;
     height: 260px;
-    /* border-radius: 4px; */
     color: #fff;
-    background: #676767;
+    background: #585858;
 }
 .box-item{
     color: #fff;
@@ -126,22 +124,22 @@ a{
     margin-right: 2px;
 }
 .pagination > li > a{
-    color: #d6d6d6;
+    color: #d4d4d4;
     padding: 5px;
-    background: #7d7d7d;
-    border: solid 1px #fff;
+    background: #585858;
+    border: solid 1px #848484;
     border-radius: 3px;
     margin: 0 2px;
     display: inline-block;
 }
 .pagination > li > a:hover{
-    background: #bdbdbd;
+    background: #848484;
 }
 .pagination >li >span{
     color: #fff;
     padding: 5px;
-    background: #949494;
-    border: solid 1px #fff;
+    background: #848484;
+    border: solid 1px #848484;
     border-radius: 3px;
     margin: 0 2px;
     display: inline-block;
@@ -352,6 +350,7 @@ a{
 .home{
     color: #fff;
     margin-top: 20px;
+    position: absolute;
 }
 .page-name{
     color: #fff;
@@ -361,6 +360,7 @@ a{
 .form-group{
     color: #fff;
     margin-top: 15px;
+    font-size: 15px;
 }
 .form-control{
     height: 25px;
@@ -371,13 +371,22 @@ a{
     padding-right: 10px;
     margin-top: 5px;
 }
-.btn-reg{
+.btn-auth{
     border: 0;
-    padding-left: 5px;
-    padding-right: 5px;
-    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 25px;
     border-radius: 5px;
     color: #4a4a4a;
     background: #fff;
     margin-top: 5px;
+}
+.btn-link{
+    margin-left: 5px;
+    color: #fff;
+    font-size: 15px;
+}
+.panel-body{
+    color: #FFFFFF;
+    font-size: 18px;
 }
