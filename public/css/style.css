@@ -390,3 +390,11 @@ a{
     color: #FFFFFF;
     font-size: 18px;
 }
+.sorry{
+    color: #fff;
+    padding-left: 8px;
+}
+.success{
+    color: #fff;
+    padding-left: 8px;
+}
