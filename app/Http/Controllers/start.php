@@ -9,11 +9,25 @@ class Start extends BaseController
 {
     public function index(){
         $film = DB::table('films')->orderBy("id","DESC")->paginate(5);
-        return view('start/films', ['film'=>$film]);
+
+        $rec = DB::table('films')->limit(15)->get();
+
+        return view('start/films', ['film'=>$film, 'rec'=>$rec]);
     }
     public function film($id){
-        $film = DB::table('films')->where('id',[$id])->get();
-        return view("start/film", ['film'=>$film]);
+        $film = DB::table('films')->where('id',[$id])->first();
+
+        DB::table('films')->where('id',[$id])->update([
+            'views' => $film->views+1
+        ]);
+
+        $key = array(
+            'Приключения' => 1,
+            'Семейное' => 2,
+            'asdasd' => 4
+        );
+
+        return view("start/film", ['film'=>$film, 'keys'=>$key]);
     }
     public function add(){
         return view('start/addform');

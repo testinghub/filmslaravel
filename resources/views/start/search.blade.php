@@ -1,11 +1,9 @@
 @extends('layout.layout')
 
 @section('right')
-    @if($film == '[]')<div class="sorry">{{'Простите но по вашему запросу ничего не найдено'}}</div>
+    @if(count($film) == 0)<div class="sorry">{{'Простите но по вашему запросу ничего не найдено'}}</div>
     @else {{''}}
     @endif
-
-    {!! dump($film) !!}
 
     @foreach($film as $films)
         <div class="box">

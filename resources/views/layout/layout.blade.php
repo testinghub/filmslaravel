@@ -9,24 +9,28 @@
     <title>Films</title>
 
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css?').time()}}" />
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/owl.carousel.css')}}" />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src='{{ URL::asset('js/owl.carousel.js')}}'></script>
 
-    <script  src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
-    <script type='text/javascript' src='{{ URL::asset('js/mediaelement-and-player.js') }}'></script>
 </head>
 <body>
-@section('header')
-<div class="menu">
-    <div class="regs">
-        @guest
-            <a class="log" href="{{ route('login') }}">Вход</a>
-            <a class="reg" href="{{ route('register') }}">Регистрация</a>
-            @else
+<div class="bg"></div>
+
+<div class="center">
+    <div class="menu">
+        <a class="logo" href="/">Thieves—movies.<div>com</div></a>
+        <div class="regs">
+            @guest
+                <a class="log" href="{{ route('login') }}">Вход</a>
+                <a class="reg" href="{{ route('register') }}">Регистрация</a>
+                @else
 
                     <a href="#" class="user-name" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ Auth::user()->name }}
                     </a>
                     <a  class="logout"  href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
+                        onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                         Logout
                     </a>
@@ -34,15 +38,13 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
-        @endguest
+                    @endguest
+        </div>
+        <form action="/search" method="post">
+            <input class="search" type="text" placeholder="Поиск" name="search">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        </form>
     </div>
-    <form action="/search" method="post">
-        <input class="search" type="text" placeholder="Поиск" name="search">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    </form>
-</div>
-@show
-<div class="center">
     <div class="column">
         @section('left')
         <div class="left">
@@ -58,42 +60,11 @@
 </div>
 </div>
 @section('script')
-
-    <script type='text/javascript' >
-        $(function() {
-            jQuery('video').mediaelementplayer({
-                alwaysShowControls: true,
-                videoVolume: 'horizontal',
-                features: ['playpause','progress','volume','fullscreen']
-            });
-
-            jQuery('#mask').on('click', function () {
-                if(jQuery('div[class=mask]').css('display') > 'none'){
-                    jQuery('div[class=mask]').fadeIn(1000);
-                }else {
-                    jQuery('div[class=mask]').fadeOut(1000);
-
-                }
-            });
-            jQuery('#film').addClass('act');
-            jQuery('#film').on('click', function () {
-                if(jQuery('#mep_0').css('display') > 'none'){
-                    jQuery('#mep_0').show();
-                    jQuery('#prev').hide();
-                    jQuery('#film').addClass('act');
-                    jQuery('#previve').removeClass('act');
-                }
-            });
-            jQuery('#previve').on('click', function () {
-                if(jQuery('#prev').css('display') > 'none') {
-                    jQuery('#mep_0').hide();
-                    jQuery('#prev').show();
-                    jQuery('#film').removeClass('act');
-                    jQuery('#previve').addClass('act');
-                }
-            });
-        });
-    </script>
+<script>
+    $(function() {
+        $(".owl-carousel").owlCarousel();
+    });
+</script>
 @show
 </body>
 </html>

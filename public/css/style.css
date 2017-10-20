@@ -10,27 +10,36 @@
     user-select: none;
     outline: none;
 }
-body{
-    background: #5f5f5f;
-}
+
 a{
     text-decoration: none;
     color: #000000;
+}
+.bg{
+    background: url('img/bg.jpg') center top fixed no-repeat;
+    background-size: 100% 100%;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+    position: fixed;
+    width:100%;
+    height:100%;
+    z-index: -1;
+
 }
 .center{
     width: 80%;
     margin: 0 auto;
 }
+.films{
+    margin-top: 50px;
+}
 .box{
-    width: 95%;
-    margin: 0 1.6%;
-    display: inline-block;
-    padding: 5px;
-    border-top: solid 1px #848484;
-    border-bottom: solid 1px #848484;
-    height: 260px;
+    margin: 0 auto;
+    height: 230px;
     color: #fff;
-    background: #585858;
+    width: 575px;
 }
 .box-item{
     color: #fff;
@@ -39,7 +48,7 @@ a{
 
 }
 .name{
-    display: grid;
+    display: inline-block;
     margin-top: 5px;
     font-size: 20px;
 }
@@ -47,18 +56,16 @@ a{
     border: 0;
     border-radius: 5px;
     float: left;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 .opt{
-    width: 550px;
+    width: 575px;
     margin-top: 15px;
     font-size: 15px;
 }
 .video{
-    width: 600px;
-    height: 300px;
+    width: 765px;
+    height: 383px;
     z-index: 1000;
     display: block;
 }
@@ -71,7 +78,6 @@ a{
 }
 .option{
     color: #eeeeee;
-    font-size: 16px;
     width: 720px;
     /*margin: 10px auto;*/
     /*margin-bottom: 50px;*/
@@ -105,23 +111,19 @@ a{
 }
 .menu{
     width: 100%;
-    min-width: 1240px;
-    height: 70px;
-    background: #3a3a3a;
-    position: absolute;
-    top: 0;
-    border-radius: 0 0 10px 10px;
-    border-bottom: solid 2px #969696;
+    height: 100px;
+    background: #1e2535;;
+    margin-top: 70px;
 }
 .pagination{
-    display: inline-flex;
-    margin-left: 35%;
-    margin-top: 15px;
+    margin: 0 auto;
+    width: 270px;
 }
 .pagination > li{
     list-style-type: none;
     margin-left: 2px;
     margin-right: 2px;
+    display: inline-block!important;
 }
 .pagination > li > a{
     color: #d4d4d4;
@@ -130,19 +132,18 @@ a{
     border: solid 1px #848484;
     border-radius: 3px;
     margin: 0 2px;
-    display: inline-block;
 }
+
 .pagination > li > a:hover{
     background: #848484;
 }
-.pagination >li >span{
+.pagination > li >span{
     color: #fff;
     padding: 5px;
     background: #848484;
     border: solid 1px #848484;
     border-radius: 3px;
     margin: 0 2px;
-    display: inline-block;
 }
 .pag-pos{
     text-align: center;
@@ -150,25 +151,23 @@ a{
 }
 .left{
     float: left;
-    width: 40%;
+    width: 200px;
     height: 100%;
-    padding-bottom: 20px;
-    padding-top: 10px;
+    background: #12161f;
 }
 .right{
-    width: 60%;
+    width: 800px;
     float: right;
     padding-bottom: 20px;
     padding-top: 10px;
     border-radius: 0 10px 10px 0;
 }
 .column{
-    background: #4a4a4a;
+    background: #12161f;
     width: 1010px;
     height: 1426px;
-    border-radius: 10px;
     border: 0;
-    margin: 100px auto 0 auto;
+    margin-bottom: 30px;
 }
 .option-item{
     display: inline-block;
@@ -185,10 +184,17 @@ a{
     height: 300px;
 }
 .option-text{
-    width: 600px;
+    width: 760px;
 }
 .genre{
     margin-top: 30px;
+}
+.genre>a{
+    color: #FFFFFF;
+    font-size: 12px;
+    display: inline-block;
+    text-decoration: underline;
+    cursor: pointer;
 }
 .line{
     height: 1px;
@@ -271,14 +277,12 @@ a{
 }
 .search{
     border-radius: 15px;
-    float: right;
-    margin-top: 20px;
-    margin-right: 100px;
     border: 0;
     height: 25px;
     padding-left: 10px;
     padding-right: 10px;
     display: inline-block;
+    background: #1e2535;
 }
 .add > label{
     color: #fff;
@@ -325,11 +329,11 @@ a{
     padding: 2px;
 }
 .regs{
-    position: absolute;
-    right: 0;
-    margin-top: 25px;
-    margin-right: 310px;
-    font-size: 14px;
+    font-size: 16px;
+    display: inline-block;
+    float: right;
+    line-height: 100px;
+    margin-right: 40px;
 }
 .reg{
     color: #fff;
@@ -397,4 +401,35 @@ a{
 .success{
     color: #fff;
     padding-left: 8px;
+}
+.logo{
+    width: 174px;
+    height: 74px;
+    display: inline-block;
+    background: #e74b3c;
+    word-wrap: break-word;
+    color: #fff;
+    font-size: 35px;
+    padding: 13px;
+    float: left;
+    font-weight: 600;
+}
+.logo > div{
+    font-size: 15px;
+    display: inline-block;
+    font-weight: 600;
+}
+.eye{
+    margin-top: 40px;
+    position: absolute;
+}
+.eye:before{
+    font-style: normal;
+    font-family: FontAwesome;
+    content: '\f06e';
+}
+.eye > div{
+    font-style: normal;
+    display: inline-block;
+    margin-left: 5px;
 }

@@ -3477,13 +3477,13 @@ var config = exports.config = {
 
 	showPosterWhenPaused: false,
 
-	defaultVideoWidth: 600,
+	defaultVideoWidth: 765,
 
-	defaultVideoHeight: 300,
+	defaultVideoHeight: 383,
 
-	videoWidth: 600,
+	videoWidth: 765,
 
-	videoHeight: 300,
+	videoHeight: 383,
 
 	defaultAudioWidth: 400,
 
