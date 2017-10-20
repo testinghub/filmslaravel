@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css?').time()}}" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/owl.carousel.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/owl.theme.default.css')}}" />
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
     <script src='{{ URL::asset('js/owl.carousel.js')}}'></script>
 
@@ -19,7 +20,7 @@
 
 <div class="center">
     <div class="menu">
-        <a class="logo" href="/">Thieves—movies.<div>com</div></a>
+        <a class="logo" href="/">Thieves—movies.<div>totalh.net</div></a>
         <div class="regs">
             @guest
                 <a class="log" href="{{ route('login') }}">Вход</a>
@@ -42,6 +43,7 @@
         </div>
         <form action="/search" method="post">
             <input class="search" type="text" placeholder="Поиск" name="search">
+            <button class="search-button"><i class="fa fa-search"aria-hidden="true"></i></button>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
         </form>
     </div>
@@ -60,11 +62,12 @@
 </div>
 </div>
 @section('script')
+
+@show
 <script>
-    $(function() {
-        $(".owl-carousel").owlCarousel();
+    jQuery(function() {
+        jQuery(".owl-carousel").owlCarousel();
     });
 </script>
-@show
 </body>
 </html>

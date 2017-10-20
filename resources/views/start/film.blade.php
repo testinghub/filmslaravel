@@ -39,14 +39,6 @@
                             @endif
                     </a>
                 @endforeach
-
-                {{--@foreach($keys as $key => $value)--}}
-                    {{--<a>--}}
-                        {{--{{$film->genre}}--}}
-                        {{--* {{$value}}--}}
-                    {{--</a>--}}
-                {{--@endforeach--}}
-
             </div>
 
         </div>
