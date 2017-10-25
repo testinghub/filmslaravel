@@ -3,6 +3,19 @@
 
 @section('right')
 
+    <div class="owl-carousel">
+        @foreach($rec as $rec)
+            <a href="/{{$rec->id}}">
+                <div class="item">
+
+                    <img src="{{$rec->img}}" width="97px" height="150px" alt="{{$rec->name}}">
+                    <div class="item-name">{{$rec->name}}</div>
+
+                </div>
+            </a>
+        @endforeach
+    </div>
+
     <div class='option'>
         <div class='name-film'>{{$film->name}} - смотреть онлайн</div>
 
@@ -50,9 +63,40 @@
         <source src='{{$film->film}}' type='video/mp4'>
     </video>
     <iframe id='prev' class='prev' width="765" height="383" src='https://www.youtube.com/embed/{{$film->youtube}}' frameborder='0'></iframe>
-
-    <a id='mask' class='masked'>Затемнить</a>
     <div class="mask"></div>
+    <a id='mask' class='masked'>Затемнить</a>
+
+    <div class='line'></div>
+
+    @guest
+        <div class="guest">Чтобы оставить отзыв о фильме вам надо <a class="log" href="{{ route('login') }}">войти</a>, или <a class="reg" href="{{ route('register') }}">зарегистрироваться</a>!</div>
+    @else
+        <div class='comment'>
+            <div class="comment-text">Оставте ваш отзыв</div>
+            <form id="comment" action="/{{$film->id}}" method="post">
+                <input id="comment-text" class="comment-textarea" maxlength="200" type="text" name="comment">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button id="send" type="submit" class="comment-btn"> Отправить </button>
+            </form>
+
+        </div>
+    @endguest
+    <div class='line'></div>
+    <div class="user-comment" id="commetn-list">
+        @if($count == '0')
+        <div class="comment-text">{{"Под этим фильмом еще нет отзывов, станьте первым"}}</div>
+        @endif
+        @include('start.ajax-comment')
+            {{--@foreach($users as $user)--}}
+                {{--<div class="user-comment-box">--}}
+                    {{--<div class="name">{{$user->name}}</div>--}}
+                    {{--<div class="date">{{date('j-m-Y H:m',$user->time)}}</div>--}}
+                    {{--<br>--}}
+                    {{--<div class="text">{{$user->text}}</div>--}}
+                {{--</div>--}}
+            {{--@endforeach--}}
+
+    </div>
 @endsection
 @section('script')
     <script type="text/javascript" src="{{URL::asset('js/mediaelement-and-player.js')}}"></script>
@@ -72,6 +116,7 @@
                     }
                 });
                 jQuery('#film').addClass('act');
+
                 jQuery('#film').on('click', function () {
                     if(jQuery('#mep_0').css('display') == 'none'){
                         jQuery('#mep_0').show();
@@ -88,6 +133,44 @@
                         jQuery('#previve').addClass('act');
                     }
                 });
+                jQuery('#comment').on('submit', function (e) {
+                    e.preventDefault();
+                    var $this = $(this);
+                    var $send = jQuery('#send');
+                    $send.prop('disabled', true);
+
+                    $.ajax({
+                        method: 'POST',
+                        data: $this.serializeArray(),
+                        dataType: 'JSON',
+                        success: function (event) {
+                            $('#comment-text').val('');
+                            $send.prop('disabled', false);
+
+                        },
+                        error: function (message) {}
+                    });
+
+                });
+
+                function getcomment() {
+                    $.ajax({
+                        method: "GET",
+                        url:'/comment/{{$film->id}}',
+                        datatype:'html',
+                        cache: false,
+                        success: function(response) {
+                            console.log(response);
+                            if(response == 0) {  // смотрим ответ от сервера и выполняем соответствующее действие
+                                alert("Больше нет записей");
+                            }else{
+                                jQuery('#commetn-list').html(response);
+                            }
+                        }
+                    });
+                }
+                setInterval(getcomment, 1000);
+
             });
     </script>
 @endsection

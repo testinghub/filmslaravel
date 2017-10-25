@@ -36,11 +36,12 @@ Auth::routes();
 Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Auth::routes();
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
-
+Route::get('/comment/{id}', 'start@comment');
 /* START PAGES */
 Route::get('/', 'start@index');
 Route::get('/{id}', 'start@film');
 Route::post('/search', 'start@search');
 Route::get('/admin/add/film', 'start@add');
 Route::post('/admin/add/films', 'start@add_film');
-
+Route::get('/categories/{menu}', 'start@categories');
+Route::post('/{id}', 'start@addcomment');

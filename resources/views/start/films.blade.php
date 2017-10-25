@@ -2,18 +2,18 @@
 
 @section('right')
 
-        <div class="owl-carousel">
-            @foreach($rec as $rec)
-            <a href="/{{$rec->id}}">
-                <div class="item">
+    <div class="owl-carousel">
+        @foreach($rec as $rec)
+        <a href="/{{$rec->id}}">
+            <div class="item">
 
-                    <img src="{{$rec->img}}" width="97px" height="150px" alt="{{$rec->name}}">
-                    <div class="item-name">{{$rec->name}}</div>
+                <img src="{{$rec->img}}" width="97px" height="150px" alt="{{$rec->name}}">
+                <div class="item-name">{{$rec->name}}</div>
 
-                </div>
-            </a>
-            @endforeach
-        </div>
+            </div>
+        </a>
+        @endforeach
+    </div>
 
     <div class="films">
         @foreach($film as $films)

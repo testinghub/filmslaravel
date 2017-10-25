@@ -15,10 +15,12 @@
         <input type="text" name="film"><br><br>
         <label>Ссылка на картинку</label><div class="hint" data-title="Прямая ссылка на картинку">?</div><br>
         <input type="text" name="img"><br><br>
-        <label>Жанр</label><div class="hint" data-title="Жанры к которым относиться фильм">?</div><br>
+        <label>Жанр</label><div class="hint" data-title="Биографии 1, Боевики 2, Вестерны 3, Военные 4, Детективы 5, Документальные 6, Драмы  7, Исторические 8, Комедии 9, Криминал 10, Мелодрамы 11, Мультфильмы 12, Мюзиклы 13, Приключения 14, Семейные 15, Cпортивные 16, Триллеры 17, Ужасы 18, Фантастика 19, Фэнтези 20">?</div><br>
         <input type="text" name="genre"><br><br>
         <label>Ссылка на трейлер с ютуба</label><div class="hint" data-title="Часть с ссылки после watch?v=">?</div><br>
         <input type="text" name="youtube"><br><br>
+        <label>Год</label><div class="hint" data-title="Год выпуска фильма">?</div><br>
+        <input type="text" name="year"><br><br>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <button type="submit">Отправить фильм</button>

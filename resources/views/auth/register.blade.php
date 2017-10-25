@@ -7,7 +7,7 @@
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-            <label for="name">Имя</label><br>
+            <label for="name">Имя <div>*</div></label><br>
             <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required
                    autofocus><br>
             @if ($errors->has('name'))
@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label for="email" class="col-md-4 control-label">Ваша почта</label><br>
+            <label for="email" class="col-md-4 control-label">Ваша почта <div>*</div></label><br>
 
 
             <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label for="password" class="col-md-4 control-label">Пароль</label><br>
+            <label for="password" class="col-md-4 control-label">Пароль <div>*</div></label><br>
             <input id="password" type="password" class="form-control" name="password" required>
 
             @if ($errors->has('password'))
@@ -44,8 +44,8 @@
         </div>
 
         <div class="form-group">
-            <label for="password-confirm" class="col-md-4 control-label">Подтверждение пароля</label>
-            <br>
+            <label for="password-confirm" class="col-md-4 control-label">Подтверждение пароля <div>*</div></label><br>
+
 
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
         </div>
